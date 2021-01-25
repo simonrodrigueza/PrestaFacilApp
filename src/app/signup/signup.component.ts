@@ -82,7 +82,6 @@ export class SignupComponent implements OnInit {
         res =>{
           // guarde token en el local storage
           //localStorage.setItem('token', res.token);
-          console.log(res);
           this.openDialog("", "Registro exitoso, disfruta de nuestros servicios");
           console.log("aca va el mensaje");
           this.router.navigate(['/signin']);
