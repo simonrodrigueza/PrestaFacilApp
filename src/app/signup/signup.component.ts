@@ -83,19 +83,21 @@ export class SignupComponent implements OnInit {
           // guarde token en el local storage
           //localStorage.setItem('token', res.token);
           console.log(res);
-          //this.router.navigate(['/private']);
+          this.openDialog("", "Registro exitoso, disfruta de nuestros servicios");
+          console.log("aca va el mensaje");
+          this.router.navigate(['/signin']);
         },
-        err => this.openDialog() //err
+        err => this.openDialog("ERROR","El usuario ya existe. Revise cédula o correo.") //err
     )
   }
-  openDialog() {
+  openDialog(title, text) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.minWidth = '350px';
     dialogConfig.maxWidth = '600px';
 
     dialogConfig.data = {
-      title: "Error",
-      msg: this.text,
+      title: title,
+      msg: text,
     };
     this.dialog.open(InfoDialogComponent, dialogConfig).afterClosed().subscribe((success) => {
     },
